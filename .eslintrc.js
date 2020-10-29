@@ -21,5 +21,6 @@ module.exports = {
     'no-console': 0,
     'camel-case': 0,
     '@typescript-eslint/camelcase': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
   },
 }

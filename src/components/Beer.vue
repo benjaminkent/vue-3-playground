@@ -1,13 +1,15 @@
 <template>
   <div class="beer-container">
-    <h1>{{ name }}</h1>
+    <h1 class="title" :title="name">{{ name }}</h1>
     <h6 class="subtitle">{{ tagline }}</h6>
-    <img :src="image_url" />
+    <div class="img-container">
+      <img :src="image_url" />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 
 export default defineComponent({
   name: 'Beer',
@@ -51,8 +53,23 @@ export default defineComponent({
 <style lang="scss" scoped>
 .beer-container {
   padding: 20px;
-  img {
-    height: 300px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #eee;
+  margin: 20px;
+  .title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .img-container {
+    display: flex;
+    justify-content: center;
+    img {
+      height: 300px;
+    }
+    margin: 20px 0;
   }
 }
 </style>
