@@ -19,5 +19,7 @@ module.exports = {
     semi: 0,
     quotes: ['error', 'single'],
     'no-console': 0,
+    'camel-case': 0,
+    '@typescript-eslint/camelcase': 'off',
   },
 }

@@ -14,7 +14,7 @@ class ApiClient {
     this.client = client
   }
 
-  async get(url: string, config: object = {}): Promise<any> {
+  async get(url: string, config: object = {}) {
     return await this.client
       .get(url, config)
       .then(response => response.data)
@@ -25,6 +25,10 @@ class ApiClient {
 
         throw error
       })
+  }
+
+  async getRandomBeer() {
+    return await this.get('beers/random')
   }
 }
 
