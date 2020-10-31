@@ -3,13 +3,18 @@
     <h1 class="title" :title="name">{{ name }}</h1>
     <h6 class="subtitle">{{ tagline }}</h6>
     <div class="img-container">
-      <img :src="image_url" />
+      <img v-if="image_url" :src="image_url" />
+      <img
+        v-else
+        class="not-available"
+        src="../assets/image-not-available.jpg"
+      />
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted } from 'vue'
+import { defineComponent } from 'vue'
 
 export default defineComponent({
   name: 'Beer',
@@ -66,10 +71,13 @@ export default defineComponent({
   .img-container {
     display: flex;
     justify-content: center;
+    margin: 20px 0;
     img {
       height: 300px;
     }
-    margin: 20px 0;
+    .not-available {
+      height: 250px;
+    }
   }
 }
 </style>
